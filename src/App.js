@@ -1,12 +1,16 @@
 //import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
+import TextForm from './components/TextForm';
 
 function App() {
   //let myVar = "CAPITAL";
   return (
     <>
     <Navbar title="SkyCrunch" facility="Facilities"/>
+    <div className="container my-3">
+    <TextForm heading = "Enter the data"/>
+    </div>
     </>
    
    /*<nav>
