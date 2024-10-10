@@ -27,6 +27,23 @@ export default function TextForm(prop) {
             console.log("On Change")
             setText(event.target.value)
         }
+            
+    const handleCopyText = (event) =>
+        {
+            console.log("I am copying")
+            var myText = document.getElementById("exampleFormControlTextarea1");
+            myText.select();
+            navigator.clipboard.writeText(myText.value);
+
+        }
+    const handleExtraSpaces = (event) =>
+        {
+            console.log("I am removing extra spaces")
+            let newText = text.split(/[ ]+/);
+            setText(newText.join(" ")) ;
+
+        }
+        
         
     const [text,setText] = useState("Enter Text here");
 
@@ -39,8 +56,10 @@ export default function TextForm(prop) {
             <textarea className="form-control" value= {text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase </button>
-            <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase </button>
+            <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to LowerCase </button>
             <button className="btn btn-primary mx-2" onClick={handleClearText}>Clear Text</button>
+            <button className="btn btn-primary mx-2" onClick={handleCopyText}>Copy Text</button>
+            <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
         </div>
         <div className="container my-3">
             <h1>YOUR TEXT SUMMARY</h1>

@@ -45,8 +45,3 @@ Navbar.propTypes= {
     //title: PropTypes.string.isRequired, // prop value required
     facility: PropTypes.string
 }
-
-Navbar.defaultProps =  {
-    title: "Set Title",
-    facility: "Set Facility"
-} 
