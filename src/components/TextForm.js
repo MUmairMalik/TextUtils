@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function TextForm(prop) {
+export default function TextForm(props) {
     const handleUpClick = () =>
     {
         console.log("Button is clicked")
@@ -45,15 +45,19 @@ export default function TextForm(prop) {
         }
         
         
-    const [text,setText] = useState("Enter Text here");
+    const [text,setText] = useState("");
 
         return (
         <>
-        <div className='container'>
-            <h1>{prop.heading}</h1>
+        <div className='container' style={{backgroundColor: props.mode==='dark'?'grey':'white',
+            color: props.mode==='dark'?'white':'black'
+        }}>
+            <h1>{props.heading}</h1>
             <div className="mb-3">
             <label htmlFor="myBox" className="form-label">Enter your destination</label>
-            <textarea className="form-control" value= {text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea className="form-control"  value= {text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="3" style={{backgroundColor: props.mode==='dark'?'grey':'white',
+            color: props.mode==='dark'?'white':'black'
+        }}></textarea>
             </div>
             <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase </button>
             <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to LowerCase </button>
@@ -61,12 +65,14 @@ export default function TextForm(prop) {
             <button className="btn btn-primary mx-2" onClick={handleCopyText}>Copy Text</button>
             <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
         </div>
-        <div className="container my-3">
+        <div className="container my-3" style={{backgroundColor: props.mode==='dark'?'grey':'white',
+            color: props.mode==='dark'?'white':'black'
+        }}>
             <h1>YOUR TEXT SUMMARY</h1>
             <p>Word Count: {text.split(" ").length-1} and Characters: {text.length}</p>
             <p>{0.008* text.split(" ").length} minutes read</p>
             <h1>Preview</h1>
-            <p>{text}</p>
+            <p>{text.length>0?text:"Enter text to Preview"}</p>
         </div>
         </>
     )
